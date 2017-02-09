@@ -95,8 +95,8 @@ foreach ($articles as $article) {
     ':Case' => $article['Case'], 
     ':NewURL' => $article['NewURL'],
     ':description' => $article['description'],
-    ':number' => $article['number']
-	':CaseNO' => $article['CaseNO'], 
+    ':number' => $article['number'],
+    ':CaseNO' => $article['CaseNO'], 
     ':CaseY' => $article['CaseY'],
     ':Bench' => $article['Bench'],
     ':court' => $article['court']    
