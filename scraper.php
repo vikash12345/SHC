@@ -81,17 +81,14 @@ try {
 	
 }
 $articles = array(array('Case' => '$Case', 'NewURL' => '$NewURL', 'description' => '$description', 'number' => '$number','CaseNO' => "$CaseNO", 'CaseY' => '$CaseY', 'Bench' => '$Bench', 'court' => '$court', 'Casetitle' => '$Casetitle','Matter' => "$Matter", 'nextdate' => '$nextdate', 'link' => '$link'));
-foreach ($articles as $article) {
+foreach ($articles as $article)
+	{
   $exists = $db->query("SELECT * FROM data WHERE Case = " . $db->quote($article->Case))->fetchObject();
   if (!$exists) {
     $sql = "INSERT INTO data(Case, NewURL, description, number,CaseNO,CaseY,Bench,court,Casetitle,Matter,nextdate,link) VALUES(:Case, :NewURL, :description, :number,:CaseNO,:CaseY,:Bench,:court,:Casetitle,:Matter,:nextdate,:link)";
   } 
   $statement = $db->prepare($sql);
-	
-	
-	
-	
-    $statement->execute(array(
+  $statement->execute(array(
     ':Case' => $article['Case'], 
     ':NewURL' => $article['NewURL'],
     ':description' => $article['description'],
@@ -100,7 +97,7 @@ foreach ($articles as $article) {
     ':CaseY' => $article['CaseY'],
     ':Bench' => $article['Bench'],
     ':court' => $article['court'],  
-':Casetitle' => $article['Casetitle'], 
+    ':Casetitle' => $article['Casetitle'], 
     ':nextdate' => $article['nextdate'],
     ':link' => $article['link']
 	    
