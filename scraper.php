@@ -99,7 +99,7 @@ foreach ($articles as $article) {
     ':CaseNO' => $article['CaseNO'], 
     ':CaseY' => $article['CaseY'],
     ':Bench' => $article['Bench'],
-    ':court' => $article['court']    
+    ':court' => $article['court'],  
 ':Casetitle' => $article['Casetitle'], 
     ':nextdate' => $article['nextdate'],
     ':link' => $article['link']
