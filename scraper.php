@@ -62,18 +62,18 @@ $db = new PDO('sqlite:data.sqlite');
 $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 try {
   $db->query('CREATE TABLE data(
-    Case VARCHAR(100),
-    NewURL VARCHAR(100),
-    description VARCHAR(100),
-    number VARCHAR(100),
-    CaseNO VARCHAR(100),
-    CaseY VARCHAR(100),
-    Bench VARCHAR(100),
-    court VARCHAR(100),
-    Casetitle VARCHAR(100),
-    Matter VARCHAR(100),
-    nextdate VARCHAR(100),
-    link VARCHAR(100),
+    Case VARCHAR(300),
+    NewURL VARCHAR(300),
+    description VARCHAR(300),
+    number VARCHAR(300),
+    CaseNO VARCHAR(300),
+    CaseY VARCHAR(300),
+    Bench VARCHAR(300),
+    court VARCHAR(300),
+    Casetitle VARCHAR(300),
+    Matter VARCHAR(300),
+    nextdate VARCHAR(300),
+    link VARCHAR(300),
     PRIMARY KEY (Case))');
     
    
