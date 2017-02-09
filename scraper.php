@@ -13,7 +13,7 @@ for ($page = 1; $page < 3; $page++)
    if ($element)		
         {
            $number = $element->find("td", 1);
-           echo $number;
+           echo $number->plaintext;
            echo '<br/>';
         }
 		
