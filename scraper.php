@@ -15,13 +15,13 @@ for ($page = 2; $page < 3; $page++)
         {
 			
            $number = $element->find("td", 0);
-		   $Case  = $element->find("td", 1);
-		   $CaseNO = $element->find("td", 2);
-		   $CaseY = $element->find("td", 3);
-		   $Bench = $element->find("td", 4);
+		   $case  = $element->find("td", 1);
+		   $caseNO = $element->find("td", 2);
+		   $caseY = $element->find("td", 3);
+		   $bench = $element->find("td", 4);
 		   $court = $element->find("td", 5);
-		   $Casetitle = $element->find("td", 6);
-		   $Matter	 = $element->find("td", 7);
+		   $casetitle = $element->find("td", 6);
+		   $matter	 = $element->find("td", 7);
 		   $nextdate = $element->find("td", 8);
 		   $linkraw = $element->find(".//td/a", 0);
 			if (is_object($linkraw)) 
@@ -34,7 +34,7 @@ for ($page = 2; $page < 3; $page++)
 		   
 
 		   
-           echo "$NewURL".'|'."$number" . '|'."$Case".'|'."$CaseNO".'|'."$CaseY".'|'."$Bench".'|'."$court".'|'."$Casetitle".'|'."$Matter".'|'."$nextdate".'|'."http://202.61.43.53$link"; 
+           echo "$newURL".'|'."$number" . '|'."$case".'|'."$caseNO".'|'."$caseY".'|'."$bench".'|'."$court".'|'."$casetitle".'|'."$matter".'|'."$nextdate".'|'."http://202.61.43.53$link"; 
 		   
 		 //  $CaseNO $CaseY $Bench $court $Casetitle $Matter $nextdate $link';
 		   
@@ -82,7 +82,7 @@ try {
 
 
 
-$articles = array(array('case' => $Case, 'newURL' => $NewURL, 'description' => $description, 'number' => $number,'CaseNO' => $caseNO, 'CaseY' => $caseY', 'Bench' => $bench, 'court' => $court, 'Casetitle' => $casetitle','Matter' => $matter, 'nextdate' => $nextdate, 'link' => $link));
+$articles = array(array('case' => $case, 'newURL' => $newURL, 'description' => $description, 'number' => $number,'caseNO' => $caseNO, 'caseY' => $caseY', 'bench' => $bench, 'court' => $court, 'casetitle' => $casetitle','matter' => $matter, 'nextdate' => $nextdate, 'link' => $link));
 foreach ($articles as $article)
 	{
 $exists = $db->query("SELECT * FROM data WHERE Case = " . $db->quote($article->Case))->fetchObject();	
