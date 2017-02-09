@@ -53,8 +53,12 @@ for ($page = 2; $page < 3; $page++)
 
 
 
+// configuration on db driver of sqlite
 $db = new PDO('sqlite:data.sqlite');
 $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+
+
 // creating sqlite database 
 try {
   $db->query('CREATE TABLE data(
@@ -82,31 +86,31 @@ try {
 
 
 
-$articles = array(array('case' => $case, 'newURL' => $newURL, 'description' => $description, 'number' => $number,'caseNO' => $caseNO, 'caseY' => $caseY', 'bench' => $bench, 'court' => $court, 'casetitle' => $casetitle','matter' => $matter, 'nextdate' => $nextdate, 'link' => $link));
+$articles = array(array('case' => $case, 'newURL' => $newURL, 'description' => $description, 'number' => $number,'caseNO' => $caseNO, 'caseY' => $caseY, 'bench' => $bench, 'court' => $court, 'casetitle' => $casetitle,'matter' => $matter, 'nextdate' => $nextdate, 'link' => $link));
 foreach ($articles as $article)
 	{
-$exists = $db->query("SELECT * FROM data WHERE Case = " . $db->quote($article->Case))->fetchObject();	
+$exists = $db->query("SELECT * FROM data WHERE case = " . $db->quote($article->case))->fetchObject();	
 	
 	if (!$exists) {
-    $sql = "INSERT INTO data(Case, NewURL, description, number,CaseNO,CaseY,Bench,court,Casetitle,Matter,nextdate,link) VALUES(:Case, :NewURL, :description, :number,:CaseNO,:CaseY,:Bench,:court,:Casetitle,:Matter,:nextdate,:link)";
+    $sql = "INSERT INTO data(case, newURL, description, number,caseNO,caseY,bench,court,casetitle,matter,nextdate,link) VALUES(:Case, :NewURL, :description, :number,:CaseNO,:CaseY,:Bench,:court,:Casetitle,:Matter,:nextdate,:link)";
   } 
 	 else {
-    $sql = "UPDATE data SET description = :description, NewURL = :NewURL , number = :number , CaseNO= :CaseNO , CaseY =:CaseY  ,Bench=:Bench , court = :court , Casetitle = :Casetitle , Matter = :Matter , nextdate = :nextdate  , link = :link 
+    $sql = "UPDATE data SET description = :description, newURL = :NewURL , number = :number , caseNO= :caseNO , caseY =:caseY  ,bench=:bench , court = :court , casetitle = :casetitle , matter = :matter , nextdate = :nextdate  , link = :link 
     
     WHERE Case = :Case";
   }
 		
   	$statement = $db->prepare($sql);
   	$statement->execute(array(
-    	':Case' => $article['Case'], 
-    	':NewURL' => $article['NewURL'],
+    	':case' => $article['case'], 
+    	':newURL' => $article['newURL'],
     	':description' => $article['description'],
     	':number' => $article['number'],
-    	':CaseNO' => $article['CaseNO'], 
-    	':CaseY' => $article['CaseY'],
-    	':Bench' => $article['Bench'],
+    	':caseNO' => $article['caseNO'], 
+    	':caseY' => $article['caseY'],
+    	':bench' => $article['bench'],
     	':court' => $article['court'],  
-    	':Casetitle' => $article['Casetitle'], 
+    	':casetitle' => $article['casetitle'], 
     	':nextdate' => $article['nextdate'],
     	':link' => $article['link']
 	    
