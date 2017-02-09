@@ -3,7 +3,6 @@ require 'scraperwiki.php';
 require 'scraperwiki/simple_html_dom.php';
 $MyWebsite = 'http://202.61.43.53/cfms-hc-search/cases/search-result?CasesSearch%5BCASENAMECODE%5D=&CasesSearch%5BCASENO%5D=&CasesSearch%5BCASEYEAR%5D=&CasesSearch%5BCIRCUITCODE%5D=&CasesSearch%5BMATTERCODE%5D=&CasesSearch%5BPARTY%5D=&CasesSearch%5BGOVT_AGENCY_CODE%5D=&CasesSearch%5BFIRNO%5D=&CasesSearch%5BFIRYEAR%5D=&CasesSearch%5BPOLICESTATIONCODE%5D=&CasesSearch%5BADVOCATECODE%5D=&CasesSearch%5BisPending%5D=3&page=';
 
-$serialnumb = 0;
 for ($page = 2; $page < 3; $page++) 
      {
         $NewURL = $MyWebsite . $page . '&per-page=15';
@@ -14,7 +13,7 @@ for ($page = 2; $page < 3; $page++)
    if ($element)		
         {
 			
-           $number = $element->find("td", 0);
+          	  $number = $element->find("td", 0);
 		   $case  = $element->find("td", 1);
 		   $caseNO = $element->find("td", 2);
 		   $caseY = $element->find("td", 3);
