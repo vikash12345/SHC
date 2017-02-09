@@ -88,6 +88,14 @@ $exists = $db->query("SELECT * FROM data WHERE :Case = " . $db->quote($article->
 	if (!$exists) {
     $sql = "INSERT INTO data(Case, NewURL, description, number,CaseNO,CaseY,Bench,court,Casetitle,Matter,nextdate,link) VALUES(:Case, :NewURL, :description, :number,:CaseNO,:CaseY,:Bench,:court,:Casetitle,:Matter,:nextdate,:link)";
   } 
+	 else {
+    $sql = "UPDATE data SET description = :description, NewURL = :NewURL , number = :number , CaseNO= :CaseNO , CaseY =:CaseY  ,Bench=:Bench , court = :court , Casetitle = :Casetitle , Matter = :Matter , nextdate = :nextdate  , link = :link 
+    
+    WHERE Case = :Case";
+  }
+	
+	
+	
   $statement = $db->prepare($sql);
   $statement->execute(array(
     ':Case' => $article['Case'], 
