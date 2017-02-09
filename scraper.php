@@ -80,5 +80,6 @@ try {
    } catch (Exception $e) { 
 	
 }
+$exists = $db->query("SELECT * FROM data");
 
 ?>
