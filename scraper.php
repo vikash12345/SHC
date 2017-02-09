@@ -53,25 +53,21 @@ for ($page = 2; $page < 3; $page++)
 
 
 
-
-
-
-
-
 $db = new PDO('sqlite:data.sqlite');
 $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+// creating sqlite database 
 try {
   $db->query('CREATE TABLE data(
-    Case VARCHAR(300),
-    NewURL VARCHAR(300),
+   case VARCHAR(300),
+    newURL VARCHAR(300),
     description VARCHAR(300),
     number VARCHAR(300),
-    CaseNO VARCHAR(300),
-    CaseY VARCHAR(300),
-    Bench VARCHAR(300),
+    caseNO VARCHAR(300),
+    caseY VARCHAR(300),
+    bench VARCHAR(300),
     court VARCHAR(300),
-    Casetitle VARCHAR(300),
-    Matter VARCHAR(300),
+    casetitle VARCHAR(300),
+    matter VARCHAR(300),
     nextdate VARCHAR(300),
     link VARCHAR(300),
     PRIMARY KEY (Case))');
@@ -80,7 +76,13 @@ try {
    } catch (Exception $e) { 
 	
 }
-$articles = array(array('Case' => ":Case", 'NewURL' => ':NewURL', 'description' => ':description', 'number' => ':number','CaseNO' => ":CaseNO", 'CaseY' => ':CaseY', 'Bench' => ':Bench', 'court' => ':court', 'Casetitle' => ':Casetitle','Matter' => ":Matter", 'nextdate' => ':nextdate', 'link' => '$link'));
+
+
+
+
+
+
+$articles = array(array('case' => $Case, 'newURL' => $NewURL, 'description' => $description, 'number' => $number,'CaseNO' => $caseNO, 'CaseY' => $caseY', 'Bench' => $bench, 'court' => $court, 'Casetitle' => $casetitle','Matter' => $matter, 'nextdate' => $nextdate, 'link' => $link));
 foreach ($articles as $article)
 	{
 $exists = $db->query("SELECT * FROM data WHERE Case = " . $db->quote($article->Case))->fetchObject();	
