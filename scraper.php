@@ -45,4 +45,40 @@ for ($page = 1; $page < 2; $page++)
  echo '-------------------------------------------<br/>';
 
     }     
+
+
+
+
+
+
+
+
+
+
+
+
+
+$db = new PDO('sqlite:data.sqlite');
+$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+try {
+  $db->query('CREATE TABLE data(
+    NewURL VARCHAR(100),
+    description VARCHAR(100),
+    number VARCHAR(100),
+    Case VARCHAR(100),
+    CaseNO VARCHAR(100),
+    CaseY VARCHAR(100),
+    Bench VARCHAR(100),
+    court VARCHAR(100),
+    Casetitle VARCHAR(100),
+    Matter VARCHAR(100),
+    nextdate VARCHAR(100),
+    link VARCHAR(100),
+    PRIMARY KEY (Case))');
+    
+   
+   } catch (Exception $e) { 
+	print $e;
+}
+
 ?>
