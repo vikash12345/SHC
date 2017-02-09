@@ -62,10 +62,10 @@ $db = new PDO('sqlite:data.sqlite');
 $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 try {
   $db->query('CREATE TABLE data(
+    Case VARCHAR(100),
     NewURL VARCHAR(100),
     description VARCHAR(100),
     number VARCHAR(100),
-    Case VARCHAR(100),
     CaseNO VARCHAR(100),
     CaseY VARCHAR(100),
     Bench VARCHAR(100),
@@ -80,6 +80,5 @@ try {
    } catch (Exception $e) { 
 	
 }
-$exists = $db->query("SELECT * FROM data");
-
+$articles = array(array('Case' => '$Case', 'NewURL' => '$NewURL', 'description' => '$description', 'number' => '$number','CaseNO' => "$CaseNO", 'CaseY' => '$CaseY', 'Bench' => '$Bench', 'court' => '$court', 'Casetitle' => '$Casetitle','Matter' => "$Matter", 'nextdate' => '$nextdate', 'link' => '$link'));
 ?>
